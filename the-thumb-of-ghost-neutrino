@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+
+'''
+We will simulate and graph Solar Neutrinos going through your thumbnail in 1/100th of a second! 
+
+'''
+
+# Set the functions for the Neutrinos
+
+Prob = 1.0  # Probability of a neutrino passing through your thumbnail in 1/100th of a second! (100%)
+TimeM = 0.01  # The time-step for the decay (1/100th of a second)
+
+
+Time = 0  # Start of time (0 seconds)
+Neutrino = 100000000000  # Number of Neutrinos passing through your thumbnail in 1 second!
+
+
+Time_List = []  # the amount of time that passes for a neutrino to pass
+Neutrino_List = []  # store the value of neutrinos with relationship to time
+
+
+# Make the Loop
+
+while Time <= 1.0:  # 1 second
+    Neutrino_List.append(Neutrino)
+    Time_List.append(Time)
+    print(Time, Neutrino)
+    Neutrino += -Neutrino * Prob * TimeM
+    Time += TimeM
+
+# Plot the graph for neutrinos passing through your thumbnail
+
+plt.plot(Time_List, Neutrino_List, "-r")
+plt.xlabel("Time (sec) ")
+plt.ylabel("Neutrinos")
+plt.savefig("decay.png", dpi=300)
+plt.show()
